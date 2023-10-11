@@ -1,7 +1,5 @@
 package lesson4.arrays;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -52,45 +50,58 @@ public class Main {
 //            else negativeCount++;
 //        }
 
-        //1
-        int count = 0;
-        do {
-            System.out.print(nums[count] + " ");
-            count++;
-        } while(count < nums.length/3);
-        System.out.println();
-        //2
-        int sum1 = 0;
-        int counter = 0;
-        int avg1;
-        for(int num : nums) {
-            if (num % 2 != 0) {
-                sum1 += num;
-                counter++;
-            }
-        }
-        avg1 = sum1/counter;
-        System.out.print(avg1);
-        System.out.println();
-        //3
-        for(int i = nums.length-1; i >= 0; i--) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println();
-        //4
-        int sum2 = 0;
-        int avg2;
-        for(int num : nums)
-            sum2 += num;
-        avg2 = sum2/nums.length;
-        for(int num : nums)
-            if(num > avg2) System.out.println(num);
+//        //1
+//        int count = 0;
+//        do {
+//            System.out.print(nums[count] + " ");
+//            count++;
+//        } while(count < nums.length/3);
+//        System.out.println();
+//        //2
+//        int sum1 = 0;
+//        int counter = 0;
+//        int avg1;
+//        for(int num : nums) {
+//            if (num % 2 != 0) {
+//                sum1 += num;
+//                counter++;
+//            }
+//        }
+//        avg1 = sum1/counter;
+//        System.out.print(avg1);
+//        System.out.println();
+//        //3
+//        for(int i = nums.length-1; i >= 0; i--) {
+//            System.out.print(nums[i] + " ");
+//        }
+//        System.out.println();
+//        //4
+//        int sum2 = 0;
+//        int avg2;
+//        for(int num : nums)
+//            sum2 += num;
+//        avg2 = sum2/nums.length;
+//        for(int num : nums)
+//            if(num > avg2) System.out.println(num);
         //5
-        int uniqueCount = 0;
-        for(int i = 0; : nums) {
-            for(int num : nums) {
-
+        int min1 = Integer.MAX_VALUE;
+        int min2 = Integer.MAX_VALUE;
+        for(int num1 : nums) {
+            int uniqueCount = 0;
+            for(int num2 : nums) {
+                if(num1 == num2) uniqueCount++;
+            }
+            if(uniqueCount == 1) {
+                if(num1 < min1) {
+                    int temp = min1;
+                    min1 = num1;
+                    min2 = temp;
+                } else if(num1 < min2) {
+                    min2 = num1;
+                }
             }
         }
+        System.out.println(min1);
+        System.out.println(min2);
     }
 }
