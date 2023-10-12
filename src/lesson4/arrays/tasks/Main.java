@@ -6,7 +6,8 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-
+        int[] nums = {10,1,5,-5,2,284};
+        findMaxAndMinElements(nums);
     }
 
     //Task of first complexity
@@ -63,6 +64,18 @@ public class Main {
         }
         System.out.println("Positive numbers: " + positiveCount);
         System.out.println("Negative numbers: " + negativeCount);
+    }
+
+    //Task8
+    public static void findMaxAndMinElements(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int num : nums) {
+            if(num > max) max = num;
+            if(num < min) min = num;
+        }
+        System.out.println("Max: " + max);
+        System.out.println("Min: " + min);
     }
 
     //Tasks of second complexity
