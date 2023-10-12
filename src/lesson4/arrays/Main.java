@@ -1,5 +1,8 @@
 package lesson4.arrays;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -84,24 +87,37 @@ public class Main {
 //        for(int num : nums)
 //            if(num > avg2) System.out.println(num);
         //5
-        int min1 = Integer.MAX_VALUE;
-        int min2 = Integer.MAX_VALUE;
-        for(int num1 : nums) {
-            int uniqueCount = 0;
-            for(int num2 : nums) {
-                if(num1 == num2) uniqueCount++;
-            }
-            if(uniqueCount == 1) {
-                if(num1 < min1) {
-                    int temp = min1;
-                    min1 = num1;
-                    min2 = temp;
-                } else if(num1 < min2) {
-                    min2 = num1;
-                }
-            }
+//        int min1 = Integer.MAX_VALUE;
+//        int min2 = Integer.MAX_VALUE;
+//        for(int num1 : nums) {
+//            int uniqueCount = 0;
+//            for(int num2 : nums) {
+//                if(num1 == num2) uniqueCount++;
+//            }
+//            if(uniqueCount == 1) {
+//                if(num1 < min1) {
+//                    int temp = min1;
+//                    min1 = num1;
+//                    min2 = temp;
+//                } else if(num1 < min2) {
+//                    min2 = num1;
+//                }
+//            }
+//        }
+//        System.out.println(min1);
+//        System.out.println(min2);
+        //6
+        System.out.println("Before shuffle: " + Arrays.toString(nums));
+        Random rn = new Random();
+        int maximum = nums.length-1;
+        int minimum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            int randomNum = rn.nextInt(maximum - minimum) + minimum;
+            int temp = nums[randomNum];
+            nums[randomNum] = nums[i];
+            nums[i] = temp;
         }
-        System.out.println(min1);
-        System.out.println(min2);
+        System.out.println("After shuffle: " + Arrays.toString(nums));
     }
+
 }
