@@ -1,4 +1,4 @@
-package classwork.library;
+package classwork.projects.library;
 
 public class Library {
 

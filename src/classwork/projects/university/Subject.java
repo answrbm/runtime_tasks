@@ -1,4 +1,4 @@
-package classwork.university;
+package classwork.projects.university;
 
 public class Subject {
 

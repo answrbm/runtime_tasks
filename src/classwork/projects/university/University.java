@@ -1,4 +1,4 @@
-package classwork.university;
+package classwork.projects.university;
 
 import java.util.ArrayList;
 import java.util.List;

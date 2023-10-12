@@ -1,4 +1,4 @@
-package lesson4.arrays;
+package lesson4.arrays.cat;
 
 public class Cat {
 
