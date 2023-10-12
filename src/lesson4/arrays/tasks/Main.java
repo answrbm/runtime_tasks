@@ -6,8 +6,6 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[] nums = {23,8,2,3,5,5};
-        findElementToSplitArray(nums);
 
     }
 
@@ -165,6 +163,23 @@ public class Main {
                 break;
             }
         }
+    }
+
+    //Task8
+    public static void findLongestEqualNumberSequenceLength(int[] nums) {
+        int maxLength = 0;
+        for (int starter = 0; starter < nums.length; starter++) {
+            int subsequenceCounter = 1;
+            for (int index = starter+1; index < nums.length; index++) {
+                if (nums[starter] == nums[index])
+                    subsequenceCounter++;
+                else
+                    break;
+            }
+            if (subsequenceCounter > maxLength && subsequenceCounter > 1)
+                maxLength = subsequenceCounter;
+        }
+        System.out.println(maxLength);
     }
 
 }
