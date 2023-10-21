@@ -16,20 +16,20 @@ public class Library {
     }
 
     // Method to lend book for a student
-    public void lendBook(Student student, Book book) {
+    public void lendBook(Person person, Book book) {
         if(!book.isAvailable()) {
             System.out.println("Book has already been borrowed");
         } else {
-            student.setBorrowedBook(book);
+            person.setBorrowedBook(book);
             book.setAvailable(false);
-            System.out.println("Book has been borrowed by "+ student.getName());
+            System.out.println("Book has been borrowed by "+ person.getName());
         }
     }
 
     // Method to accept returned book
-    public void acceptBook(Student student, Book book) {
+    public void acceptBook(Person person, Book book) {
         book.setAvailable(true);
         System.out.println("Book has been returned");
-        student.setBorrowedBook(null);
+        person.setBorrowedBook(null);
     }
 }
