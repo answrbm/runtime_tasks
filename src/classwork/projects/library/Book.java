@@ -15,6 +15,7 @@ public class Book {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
+        this.isAvailable = true;
     }
 
     public String getTitle() {

@@ -35,6 +35,11 @@ public class Student {
 
     // Method to display book details
     public void display() {
-        System.out.println("Student: " + name + " | student id: " + studentId + " | book: " + borrowedBook.getTitle());
+        String title;
+        if(borrowedBook == null)
+            title = "no book";
+        else
+            title = borrowedBook.getTitle();
+        System.out.println("Student: " + name + " | student id: " + studentId + " | book: " + title);
     }
 }
