@@ -5,6 +5,8 @@ public class Book {
     private int id;
     private String title;
     private String author;
+    private double rating;
+    private int ratingQuantity; // quantity of ratings for book
 
     public Book(int id, String title, String author) {
         this.id = id;
