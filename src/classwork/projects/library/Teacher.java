@@ -4,22 +4,16 @@ import classwork.projects.university.Subject;
 
 public class Teacher extends Person {
 
-    private int teacherId;
-    private String name;
-    private Subject subject;
+    private int teacherId; // пропуск
 
-    public Teacher(int teacherId, String name, Subject subject) {
-        super(teacherId, name);
-        this.subject = subject;
-    }
-
-    public Subject getSubject() {
-        return subject;
+    public Teacher(int teacherId, String name) {
+        super(name);
+        this.teacherId = teacherId;
     }
 
     @Override
     public void display() {
-        System.out.println("Teacher data:");
+        System.out.print("Teacher id: " + teacherId + " ");
         super.display();
     }
 }

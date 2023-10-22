@@ -2,13 +2,11 @@ package classwork.projects.library;
 
 public class Person {
 
-    private int personId;
     private String name;
     private Book lastBorrowedBook;
     private Book borrowedBook;
 
-    public Person(int personId, String name) {
-        this.personId = personId;
+    public Person(String name) {
         this.name = name;
     }
 
@@ -43,6 +41,6 @@ public class Person {
             title = "no book";
         else
             title = borrowedBook.getTitle();
-        System.out.println("Person: " + name + " | person id: " + personId + " | book: " + title);
+        System.out.println("Person: " + name + " | book: " + title);
     }
 }

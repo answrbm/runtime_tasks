@@ -16,6 +16,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.isAvailable = true;
+        this.ratings = new ArrayList<>();
     }
 
     public String getTitle() {
@@ -30,16 +31,23 @@ public class Book {
         isAvailable = available;
     }
 
+    public double getAverageRating() {
+        return averageRating;
+    }
+
     public void calculateRating() {
         double sum = 0;
         for(double rating : ratings) {
             sum += rating;
         }
-        System.out.println("Average rating for book: " + sum/ratings.size());
+        averageRating = sum/ratings.size();
+        System.out.println("Average rating for book: " + averageRating);
     }
 
     public void addRating(double rating) {
+        calculateRating();
         ratings.add(rating);
+        System.out.println("New rating was added for book");
     }
 
     // Method to display book details

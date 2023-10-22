@@ -1,27 +1,39 @@
 package classwork.projects.library;
 
+import java.util.ArrayList;
+
 public class Subject {
 
-    private int subjectId;
     private String subjectName;
     private Teacher teacher;
+    private ArrayList<Student> students; // студенты обучающиеся на курсе
 
-    public Subject(int subjectId, String subjectName, Teacher teacher) {
-        this.subjectId = subjectId;
+    public Subject(String subjectName, Teacher teacher) {
         this.subjectName = subjectName;
         this.teacher = teacher;
-    }
-
-    public int getSubjectId() {
-        return subjectId;
+        this.students = new ArrayList<>();
     }
 
     public String getSubjectName() {
         return subjectName;
     }
 
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
+
+    public void showAllStudents() {
+        display();
+        System.out.println("Students:");
+        students.forEach(Student::display);
+    }
+
     // Method to display subject details
     public void display() {
-        System.out.println("Subject: " + subjectName + " | subject id: " + subjectId + " | teacher: " + teacher.getName());
+        System.out.println("Subject: " + subjectName + " | teacher: " + teacher.getName());
     }
 }
