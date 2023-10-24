@@ -6,8 +6,8 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5};
-        rotateArrayRight(nums,13);
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        findMaximumSubArraySum(nums);
     }
 
     //Task of first complexity
@@ -298,20 +298,32 @@ public class Main {
         System.out.println(Arrays.toString(rearrangedArray));
     }
 
-    //Task5 - used chatgpt
+    //Task5
     //5. Наибольшая сумма подпоследовательности: Найти подмассив с наибольшей суммой в массиве целых чисел.
     //Пример:
     //Ввод: {−2, 1, −3, 4, −1, 2, 1, −5, 4}
-    //Ожидаемый вывод: {4, −1, 2, 1} с суммой
+    //Ожидаемый вывод: {4, −1, 2, 1} с суммой 6
     public static void findMaximumSubArraySum(int[] nums) {
         int maxSum = nums[0];
         int currentSum = nums[0];
+        int start = 0;
+        int end = 0;
         for(int i = 1; i < nums.length; i++) {
-            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            if(currentSum + nums[i] < nums[i]) {
+                currentSum = nums[i];
+                start = i;
+            } else {
+                currentSum += nums[i];
+            }
 
-            maxSum = Math.max(maxSum, currentSum);
+            if(maxSum < currentSum) {
+                maxSum = currentSum;
+                end = i;
+            }
         }
-        System.out.println(" = " + maxSum);
+        int[] subsequenceArray = Arrays.copyOfRange(nums,start,end+1);
+        System.out.println("Max sum: " + maxSum);
+        System.out.println(Arrays.toString(subsequenceArray));
     }
 
     //Task6
@@ -332,6 +344,34 @@ public class Main {
             }
         }
         System.out.println(Arrays.toString(rotatedArray));
+    }
+
+    //Task7
+    //7. Удаление дубликатов из отсортированного массива: Реализовать функцию, которая удаляет все дубликаты из отсортированного массива и возвращает новую длину массива.
+    //Пример:
+    //Ввод: {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+    //Ожидаемый вывод: {0, 1, 2, 3, 4} с новой длиной 5.
+    public static void removeDuplicates(int[] nums) {
+        int[] distinctArray = new int[nums.length];
+        int counter = 0;
+        boolean hasZero = false;
+        for (int num : nums) {
+            for (int j = 0; j < distinctArray.length; j++) {
+                if (num == distinctArray[j]) {
+                    if (num == 0 && !hasZero) {
+                        hasZero = true;
+                        counter++;
+                    }
+                    break;
+                }
+                if (j == distinctArray.length - 1) {
+                    distinctArray[counter] = num;
+                    counter++;
+                }
+            }
+        }
+        distinctArray = Arrays.copyOf(distinctArray,counter);
+        System.out.println(Arrays.toString(distinctArray));
     }
 
 
