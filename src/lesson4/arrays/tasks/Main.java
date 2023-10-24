@@ -392,7 +392,22 @@ public class Main {
         return maxDifference;
     }
 
-
+    //Task2
+    //Напишите функцию, которая принимает на вход массив и число n и "вращает" массив на n позиций вправо.
+    public int[] rotate(int[] arr, int n) {
+        int[] rotatedArray = new int[arr.length];
+        if(n > arr.length)
+            n = n%arr.length;
+        for(int i = 0; i < arr.length; i++) {
+            if(i+n <= arr.length-1)
+                rotatedArray[i+n] = arr[i];
+            else {
+                int index = Math.abs(n-(arr.length-i));
+                rotatedArray[index] = arr[i];
+            }
+        }
+        System.out.println(Arrays.toString(rotatedArray));
+    }
 
 
 }
