@@ -6,8 +6,8 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        findMaximumSubArraySum(nums);
+        int[] nums = {5, 6, 7, 8, 9};
+        System.out.println(maxDifference(nums));
     }
 
     //Task of first complexity
@@ -373,6 +373,26 @@ public class Main {
         distinctArray = Arrays.copyOf(distinctArray,counter);
         System.out.println(Arrays.toString(distinctArray));
     }
+
+    //Tasks of fourth complexity
+
+    //Task1
+    //Найдите и верните наибольшую разницу между двумя элементами в массиве, где меньший элемент предшествует большому.
+    public static int maxDifference(int[] arr) {
+        int maxDifference = Integer.MIN_VALUE;
+        for(int i = 0; i < arr.length; i++) {
+            for(int j = i+1; j < arr.length; j++) {
+                if(arr[i] < arr[j]) {
+                    int difference = arr[j] - arr[i];
+                    if (difference > maxDifference)
+                        maxDifference = difference;
+                }
+            }
+        }
+        return maxDifference;
+    }
+
+
 
 
 }
