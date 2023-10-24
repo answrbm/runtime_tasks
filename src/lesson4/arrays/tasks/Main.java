@@ -406,7 +406,7 @@ public class Main {
                 rotatedArray[index] = arr[i];
             }
         }
-        System.out.println(Arrays.toString(rotatedArray));
+        return rotatedArray;
     }
 
 
