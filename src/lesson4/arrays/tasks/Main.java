@@ -6,8 +6,9 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[] nums = {3, 3, 1, 2, 2, 3, 4, 4, 4};
-        System.out.println(mostFrequent(nums));
+        int[] arr1 = {1, 3, 5, 7};
+        int[] arr2 = {2, 4, 6, 8};
+        System.out.println(Arrays.toString(mergeSortedArrays(arr1,arr2)));
     }
 
     //Task of first complexity
@@ -427,6 +428,52 @@ public class Main {
             }
         }
         return elem;
+    }
+
+    //Task4
+    //Напишите функцию, которая принимает на вход массив целых чисел и целое число target.
+    // Найдите два числа в массиве, которые в сумме дают target, и верните их в виде массива.
+    // Если таких чисел нет, верните пустой массив.
+    public static int[] twoSum(int[] arr, int target) {
+        int[] twoSumDigits = new int[2];
+        for(int numOuter : arr) {
+            for(int numInner : arr) {
+                if(numOuter + numInner == target) {
+                    twoSumDigits[0] = numOuter;
+                    twoSumDigits[1] = numInner;
+                    break;
+                }
+            }
+        }
+        return twoSumDigits;
+    }
+
+    //Task5
+    //У вас есть два отсортированных массива.
+    // Напишите функцию, которая сливает их в один отсортированный массив.
+    public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
+        int[] sortedArray = new int[arr1.length + arr2.length];
+        int count = 0;
+        for (int i = 0; i < arr1.length; i++) {
+            sortedArray[i] = arr1[i];
+            count++;
+        }
+        for (int j : arr2) {
+            sortedArray[count++] = j;
+        }
+
+        int n = 0;
+        while(n < sortedArray.length) {
+            for (int i = 0; i < sortedArray.length - 1 - n; i++) {
+                if (sortedArray[i] > sortedArray[i + 1]) {
+                    int temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i + 1];
+                    sortedArray[i + 1] = temp;
+                }
+            }
+            n++;
+        }
+        return sortedArray;
     }
 
 }
