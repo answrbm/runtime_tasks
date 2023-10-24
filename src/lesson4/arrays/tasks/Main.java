@@ -6,8 +6,8 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        int[] nums = {5, 6, 7, 8, 9};
-        System.out.println(maxDifference(nums));
+        int[] nums = {3, 3, 1, 2, 2, 3, 4, 4, 4};
+        System.out.println(mostFrequent(nums));
     }
 
     //Task of first complexity
@@ -409,5 +409,24 @@ public class Main {
         return rotatedArray;
     }
 
+    //Task3
+    //Найдите элемент, который встречается в массиве наибольшее количество раз.
+    // Если таких элементов несколько, верните любой из них
+    public static int mostFrequent(int[] arr) {
+        int maxCount = 0;
+        int elem = 0;
+        for (int k : arr) {
+            int count = -1;
+            for (int i : arr) {
+                if (k == i)
+                    count++;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                elem = k;
+            }
+        }
+        return elem;
+    }
 
 }
