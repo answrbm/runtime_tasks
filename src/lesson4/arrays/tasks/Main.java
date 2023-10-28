@@ -334,5 +334,24 @@ public class Main {
         System.out.println(Arrays.toString(rotatedArray));
     }
 
+    //Task7
+    //7. Удаление дубликатов из отсортированного массива: Реализовать функцию, которая удаляет все дубликаты из отсортированного массива и возвращает новую длину массива.
+    //Пример:
+    //Ввод: {0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+    //Ожидаемый вывод: {0, 1, 2, 3, 4} с новой длиной 5.
+    public static void removeDuplicates(int[] nums) {
+        int[] distinctArray = new int[nums.length];
+        for(int i = 0; i < nums.length; i++) {
+            int counter = 0;
+            for(int j = 0; j < nums.length; j++) {
+                if(i == j && counter < 1) {
+                    distinctArray[i] = nums[j];
+                    counter++;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(distinctArray));
+    }
+
 
 }
