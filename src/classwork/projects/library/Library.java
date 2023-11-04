@@ -1,6 +1,5 @@
 package classwork.projects.library;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -10,6 +9,7 @@ public class Library {
     private ArrayList<Person> peopleWithBooks; // The list of people who borrowed a book
 
     public Library() {
+        this.peopleWithBooks = new ArrayList<>();
         this.availableBooks = new ArrayList<>();
     }
 
