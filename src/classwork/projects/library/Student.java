@@ -9,6 +9,10 @@ public class Student extends Person {
         this.studentId = studentId;
     }
 
+    public int getStudentId() {
+        return studentId;
+    }
+
     @Override
     public void display() {
         System.out.print("Student id: " + studentId + " ");

@@ -11,6 +11,10 @@ public class Teacher extends Person {
         this.teacherId = teacherId;
     }
 
+    public int getTeacherId() {
+        return teacherId;
+    }
+
     @Override
     public void display() {
         System.out.print("Teacher id: " + teacherId + " ");

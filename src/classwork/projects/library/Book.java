@@ -19,6 +19,10 @@ public class Book {
         this.ratings = new ArrayList<>();
     }
 
+    public int getBookId() {
+        return bookId;
+    }
+
     public String getTitle() {
         return title;
     }
