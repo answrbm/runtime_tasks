@@ -1,6 +1,7 @@
 package classwork.projects.library;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class Library {
@@ -16,6 +17,23 @@ public class Library {
     public void addBook(Book book) {
         availableBooks.add(book);
         System.out.println("New book was added to the library");
+    }
+
+    //Method to add the list of books
+    public void addBooks(Book[] books) {
+        availableBooks.addAll(List.of(books));
+    }
+
+    //Method to get the list of all books
+    public void showAllBooks() {
+        System.out.println("All books in library:");
+        availableBooks.forEach(Book::display);
+    }
+
+    //Method to get the list of available books
+    public void showAvailableBooks() {
+        System.out.println("Available books in library:");
+        availableBooks.stream().filter(Book::isAvailable).forEach(Book::display);
     }
 
     // Method to lend book
@@ -58,6 +76,7 @@ public class Library {
         }
     }
 
+    //Method to find a student by id
     public void getStudentById(int studentId) {
         Optional<Person> foundPerson = peopleWithBooks.stream().filter(person -> person instanceof Student &&
                         ((Student) person).getStudentId() == studentId).findAny();
@@ -67,6 +86,7 @@ public class Library {
             System.out.println("Student not found");
     }
 
+    //Method to find a teacher by id
     public void getTeacherById(int teacherId) {
         Optional<Person> foundPerson = peopleWithBooks.stream().filter(person -> person instanceof Teacher &&
                 ((Teacher) person).getTeacherId() == teacherId).findAny();

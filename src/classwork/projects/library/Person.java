@@ -15,7 +15,12 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        String firstLetter = name.split("")[0];
+        if(firstLetter.equals(firstLetter.toUpperCase())) {
+            this.name = name;
+        } else {
+            System.out.println("First letter couldn't be lower");
+        }
     }
 
     public Book getLastBorrowedBook() {

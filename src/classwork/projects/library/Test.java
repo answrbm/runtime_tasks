@@ -61,5 +61,9 @@ public class Test {
         teacher1.display();
         System.out.println();
         teacher2.display();
+
+        library.showAllBooks();
+        library.showAvailableBooks();
+
     }
 }
