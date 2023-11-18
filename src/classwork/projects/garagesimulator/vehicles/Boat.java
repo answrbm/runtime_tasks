@@ -1,6 +1,4 @@
-package classwork.projects.garagesimulator;
-
-import classwork.projects.garagesimulator.models.Vehicle;
+package classwork.projects.garagesimulator.vehicles;
 
 public class Boat extends Vehicle {
 
@@ -14,6 +12,6 @@ public class Boat extends Vehicle {
 
     @Override
     public void move() {
-        System.out.println("Boat is moving");
+        System.out.println(name + " is floating");
     }
 }

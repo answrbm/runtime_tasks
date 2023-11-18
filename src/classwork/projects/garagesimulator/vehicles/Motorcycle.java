@@ -1,6 +1,5 @@
-package classwork.projects.garagesimulator;
+package classwork.projects.garagesimulator.vehicles;
 
-import classwork.projects.garagesimulator.models.Vehicle;
 
 public class Motorcycle extends Vehicle {
     public Motorcycle(String name, double speed) {
@@ -13,10 +12,5 @@ public class Motorcycle extends Vehicle {
 
     public void stopEngine() {
         System.out.println("Motorcycle engine is stopped");
-    }
-
-    @Override
-    public void move() {
-        System.out.println("Motorcycle is moving");
     }
 }

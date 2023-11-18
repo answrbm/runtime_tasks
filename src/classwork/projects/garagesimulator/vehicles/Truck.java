@@ -1,6 +1,6 @@
-package classwork.projects.garagesimulator;
+package classwork.projects.garagesimulator.vehicles;
 
-import classwork.projects.garagesimulator.models.Vehicle;
+import classwork.projects.garagesimulator.vehicles.Vehicle;
 
 public class Truck extends Vehicle {
 
@@ -13,9 +13,5 @@ public class Truck extends Vehicle {
 
     public double getLoadCapacity() {
         return loadCapacity;
-    }
-    @Override
-    public void move() {
-        System.out.println("Truck is moving");
     }
 }

@@ -1,6 +1,4 @@
-package classwork.projects.garagesimulator;
-
-import classwork.projects.garagesimulator.models.Vehicle;
+package classwork.projects.garagesimulator.vehicles;
 
 public class Car extends Vehicle {
 
@@ -18,10 +16,5 @@ public class Car extends Vehicle {
             System.out.println("Sport mode was turned on");
             isSportModeOn = true;
         }
-    }
-
-    @Override
-    public void move() {
-        System.out.println("Car is moving");
     }
 }

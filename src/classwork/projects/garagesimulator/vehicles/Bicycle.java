@@ -1,6 +1,6 @@
-package classwork.projects.garagesimulator;
+package classwork.projects.garagesimulator.vehicles;
 
-import classwork.projects.garagesimulator.models.Vehicle;
+import classwork.projects.garagesimulator.vehicles.Vehicle;
 
 public class Bicycle extends Vehicle {
 
@@ -16,10 +16,5 @@ public class Bicycle extends Vehicle {
             System.out.println("Gear switched to " + gear);
         else
             System.out.println("Gear should be between 1 and " + gearsQuantity);
-    }
-
-    @Override
-    public void move() {
-        System.out.println("Bicycle is moving");
     }
 }
