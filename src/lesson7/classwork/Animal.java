@@ -9,4 +9,8 @@ public class Animal {
     public void sleep() {
         System.out.println("This animal is sleeping");
     }
+
+    public void eat() {
+        System.out.println("Животное кушает");
+    }
 }
