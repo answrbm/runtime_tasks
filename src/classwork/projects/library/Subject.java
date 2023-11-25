@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Subject {
 
-    private String subjectName;
-    private Teacher teacher;
-    private ArrayList<Student> students; // студенты обучающиеся на курсе
+    private final String subjectName;
+    private final Teacher teacher;
+    private final ArrayList<Student> students; // студенты обучающиеся на курсе
 
     public Subject(String subjectName, Teacher teacher) {
         this.subjectName = subjectName;

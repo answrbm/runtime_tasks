@@ -2,7 +2,7 @@ package classwork.projects.library;
 
 public class Student extends Person {
 
-    private int studentId; // Номер зачетки
+    private final int studentId; // Номер зачетки
 
     public Student(int studentId, String name) {
         super(name);

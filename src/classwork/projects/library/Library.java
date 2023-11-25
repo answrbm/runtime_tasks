@@ -6,8 +6,10 @@ import java.util.Optional;
 
 public class Library {
 
-    private ArrayList<Book> availableBooks;
-    private ArrayList<Person> peopleWithBooks; // The list of people who borrowed a book
+    private final ArrayList<Book> availableBooks;
+    private final ArrayList<Person> peopleWithBooks; // The list of people who borrowed a book
+    public static final int LIBRARY_CAPACITY = 10;
+    private static int bookCounter = 0;
 
     public Library() {
         this.peopleWithBooks = new ArrayList<>();
@@ -15,13 +17,22 @@ public class Library {
     }
 
     public void addBook(Book book) {
-        availableBooks.add(book);
-        System.out.println("New book was added to the library");
+        if(bookCounter < LIBRARY_CAPACITY) {
+            bookCounter++;
+            availableBooks.add(book);
+            System.out.println("New book was added to the library");
+        } else {
+            System.out.println("No place for your book! Library capacity: " + LIBRARY_CAPACITY);
+        }
     }
 
     //Method to add the list of books
     public void addBooks(Book[] books) {
-        availableBooks.addAll(List.of(books));
+        if(books.length + bookCounter < LIBRARY_CAPACITY) {
+            availableBooks.addAll(List.of(books));
+        } else {
+            System.out.println("No place for your books! Library capacity: " + LIBRARY_CAPACITY);
+        }
     }
 
     //Method to get the list of all books

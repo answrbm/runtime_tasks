@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Book {
 
-    private int bookId;
-    private String title;
-    private String author;
+    private final int bookId;
+    private final String title;
+    private final String author;
     private double averageRating;
     private boolean isAvailable;
-    private ArrayList<Double> ratings; // ratings for book
+    private final ArrayList<Double> ratings; // ratings for book
 
     public Book(int bookId, String title, String author) {
         this.bookId = bookId;

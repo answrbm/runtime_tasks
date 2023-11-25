@@ -4,7 +4,7 @@ import classwork.projects.university.Subject;
 
 public class Teacher extends Person {
 
-    private int teacherId; // пропуск
+    private final int teacherId; // пропуск
 
     public Teacher(int teacherId, String name) {
         super(name);
