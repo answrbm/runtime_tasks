@@ -7,6 +7,8 @@ public class Person {
     private String name;
     private Book lastBorrowedBook;
     private ArrayList<Book> borrowedBooks;
+    public static final int BOOK_CAPACITY = 5;
+    private static int bookCounter = 0;
 
     public Person(String name) {
         this.borrowedBooks = new ArrayList<>();
@@ -38,12 +40,22 @@ public class Person {
         return borrowedBooks;
     }
 
-    public void setBorrowedBooks(ArrayList<Book> borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
+    public void addBorrowedBooks(ArrayList<Book> borrowedBooks) {
+        if(bookCounter + borrowedBooks.size() < BOOK_CAPACITY) {
+            bookCounter += borrowedBooks.size();
+            this.borrowedBooks.addAll(borrowedBooks);
+        } else {
+            System.out.println(name + " can take only " + BOOK_CAPACITY + " books!");
+        }
     }
 
     public void addBorrowedBook(Book borrowedBook) {
-        borrowedBooks.add(borrowedBook);
+        if(bookCounter < BOOK_CAPACITY) {
+            bookCounter++;
+            borrowedBooks.add(borrowedBook);
+        } else {
+            System.out.println(name + " can take only " + BOOK_CAPACITY + " books!");
+        }
     }
 
     public void removeBorrowedBook(Book borrowedBook) {
