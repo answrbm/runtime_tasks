@@ -1,5 +1,7 @@
 package classwork.projects.library;
 
+import java.util.List;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -16,11 +18,11 @@ public class Test {
         Book book11 = new Book(11,"Book11","Author11");
 
 
-        Student student1 = new Student(1,"Sam");
-        Student student2 = new Student(2,"Bob");
-        Student student3 = new Student(3,"Martin");
-        Student student4 = new Student(4,"Adam");
-        Student student5 = new Student(5,"Mark");
+        Student student1 = new Student(1,"Sam",StudyYear.FIRST);
+        Student student2 = new Student(2,"Bob",StudyYear.FIRST);
+        Student student3 = new Student(3,"Martin",StudyYear.FIRST);
+        Student student4 = new Student(4,"Adam",StudyYear.FIRST);
+        Student student5 = new Student(5,"Mark",StudyYear.FIRST);
 
 
         Teacher teacher1 = new Teacher(1,"Teacher1");
@@ -63,8 +65,14 @@ public class Test {
         System.out.println();
         library.lendBook(student1,book1);
         library.lendBook(student1,book2);
-        library.lendBook(teacher1,book3);
-        library.lendBook(teacher2,book4);
+        library.lendBook(student2,book3);
+        library.lendBook(student2,book4);
+        library.lendBook(student3,book5);
+        library.lendBook(student3,book6);
+        library.lendBook(student4,book7);
+        library.lendBook(student4,book8);
+        library.lendBook(teacher1,book9);
+        library.lendBook(teacher2,book10);
 
         student1.showBorrowedBooks();
 
@@ -86,5 +94,8 @@ public class Test {
         library.showAllBooks();
         library.showAvailableBooks();
 
+        System.out.println("_____________");
+
+        library.showBorrowerStudentsByStudyYear(StudyYear.FIRST);
     }
 }

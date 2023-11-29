@@ -8,7 +8,9 @@ public class Library {
 
     private final ArrayList<Book> availableBooks;
     private final ArrayList<Person> peopleWithBooks; // The list of people who borrowed a book
+    // Maximum possible books in the library
     public static final int LIBRARY_CAPACITY = 10;
+    // Field counts all added books
     private static int bookCounter = 0;
 
     public Library() {
@@ -54,7 +56,8 @@ public class Library {
         } else {
             person.addBorrowedBook(book);
             book.setAvailable(false);
-            peopleWithBooks.add(person);
+            if(!peopleWithBooks.contains(person))
+                peopleWithBooks.add(person);
             System.out.println(book.getTitle() + " has been borrowed by "+ person.getName());
         }
     }
@@ -63,7 +66,8 @@ public class Library {
     public void acceptBook(Person person, Book book) {
         book.setAvailable(true);
         System.out.println(book.getTitle() + " has been returned");
-        peopleWithBooks.remove(person);
+        if(person.getBorrowedBooks().isEmpty())
+            peopleWithBooks.remove(person);
         person.removeBorrowedBook(book);
     }
 
@@ -106,5 +110,15 @@ public class Library {
             foundPerson.get().display();
         else
             System.out.println("Teacher not found");
+    }
+
+    // Method to show students of the specific year who borrowed book
+    public void showBorrowerStudentsByStudyYear(StudyYear studyYear) {
+        List<Student> students = peopleWithBooks.stream()
+                .filter(person -> person instanceof Student && ((Student)person).getStudyYear().equals(studyYear))
+                .map(person -> (Student) person)
+                .toList();
+
+        students.forEach(Student::display);
     }
 }
