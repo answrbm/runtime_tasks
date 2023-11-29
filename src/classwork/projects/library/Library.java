@@ -20,7 +20,7 @@ public class Library {
         if(bookCounter < LIBRARY_CAPACITY) {
             bookCounter++;
             availableBooks.add(book);
-            System.out.println("New book was added to the library");
+            System.out.println(book.getTitle() + " was added to the library");
         } else {
             System.out.println("No place for your book! Library capacity: " + LIBRARY_CAPACITY);
         }
@@ -50,21 +50,21 @@ public class Library {
     // Method to lend book
     public void lendBook(Person person, Book book) {
         if(!book.isAvailable()) {
-            System.out.println("Book has already been borrowed");
+            System.out.println(book.getTitle() + " has already been borrowed");
         } else {
-            person.setBorrowedBook(book);
+            person.addBorrowedBook(book);
             book.setAvailable(false);
             peopleWithBooks.add(person);
-            System.out.println("Book has been borrowed by "+ person.getName());
+            System.out.println(book.getTitle() + " has been borrowed by "+ person.getName());
         }
     }
 
     // Method to accept returned book
     public void acceptBook(Person person, Book book) {
         book.setAvailable(true);
-        System.out.println("Book has been returned");
+        System.out.println(book.getTitle() + " has been returned");
         peopleWithBooks.remove(person);
-        person.setBorrowedBook(null);
+        person.removeBorrowedBook(book);
     }
 
     //Method to get the list of people who borrowed a book
@@ -76,7 +76,8 @@ public class Library {
     public void getBorrowerByBookId(int bookId) {
         Optional<Person> foundPerson = peopleWithBooks
                 .stream()
-                .filter(person -> person.getBorrowedBook().getBookId() == bookId)
+                .filter(person -> person.getBorrowedBooks().stream()
+                        .anyMatch(book -> book.getBookId() == bookId))
                 .findAny();
 
         if(foundPerson.isPresent()) {
