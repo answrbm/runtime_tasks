@@ -22,5 +22,7 @@ public class Test {
 //        System.out.println("Имя человека: " + personName);
 //        System.out.println("Возраст человека: " + personAge);
 //        System.out.println("Вес человека: " + personWeight);
+
+        System.out.println(0.1 + 0.1);
     }
 }
