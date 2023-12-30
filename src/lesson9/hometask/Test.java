@@ -1,6 +1,7 @@
 package lesson9.hometask;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Test {
 
@@ -61,11 +62,91 @@ public class Test {
 //        System.out.println("Count of " + word + ": " + count);
 
         //Task 5
-        String text = "application hello template hello translate";
-        String word = "hello";
+//        String text = "application hello template hello translate";
+//        String word = "hello";
+//
+//        text = text.replace(word,"*".repeat(word.length()));
+//        System.out.println(text);
 
-        text = text.replace(word,"*".repeat(word.length()));
-        System.out.println(text);
+        //MORE TASKS
+
+        //Task 1
+//        String text = "Java is a widely used programming language";
+//        String[] words = text.split("\\s");
+//        System.out.println(Arrays.toString(words));
+//        StringBuilder sortedText = new StringBuilder();
+//
+//        for(int wordIndex = 0; wordIndex < words.length; wordIndex++) {
+//            for(int i = wordIndex+1; i < words.length; i++) {
+//                if(words[wordIndex].length() > words[i].length()) {
+//                    String temp = words[wordIndex];
+//                    words[wordIndex] = words[i];
+//                    words[i] = temp;
+//                } else if(words[wordIndex].length() == words[i].length()) {
+//                    if(words[wordIndex].compareTo(words[i]) > 0) {
+//                        String temp = words[wordIndex];
+//                        words[wordIndex] = words[i];
+//                        words[i] = temp;
+//                    }
+//                }
+//            }
+//            sortedText.append(words[wordIndex]);
+//            if(wordIndex < words.length-1)
+//                sortedText.append(" ");
+//        }
+//        System.out.println(sortedText);
+
+        //Task 3
+//        String text = "Java is as versatile as Java can be. JAVA is everywhere!";
+//        String oldWord = "Java";
+//        String newWord = "Python";
+//
+//        text = text
+//                .replaceAll(oldWord,newWord)
+//                .replaceAll(oldWord.toLowerCase(),newWord.toLowerCase())
+//                .replaceAll(oldWord.toUpperCase(),newWord.toUpperCase());
+//        System.out.println(text);
+
+        //Task 4
+//        String text = "Java is easy to learn, is easy to write, and is easy to debug";
+        //Only one word
+//        String[] words = text.split("\\s");
+//        String mostFrequentWord = words[0];
+//        int mostFrequentCounter = Integer.MIN_VALUE;
+//        for(int wordIndex = 0; wordIndex < words.length; wordIndex++) {
+//            int frequencyCounter = 1;
+//            for(int i = wordIndex+1; i < words.length; i++) {
+//                if(words[wordIndex].equalsIgnoreCase(words[i]))
+//                    frequencyCounter++;
+//            }
+//            if(frequencyCounter > mostFrequentCounter) {
+//                mostFrequentCounter = frequencyCounter;
+//                mostFrequentWord = words[wordIndex];
+//            }
+//        }
+//        System.out.println(mostFrequentWord);
+
+        String text = "Java is easy to learn, is easy to write, and is easy to debug";
+        //Several words
+        String[] words = text.split("\\s");
+        StringBuilder mostFrequentWords = new StringBuilder();
+        int mostFrequentCounter = Integer.MIN_VALUE;
+        for(int wordIndex = 0; wordIndex < words.length; wordIndex++) {
+            int frequencyCounter = 1;
+            for(int i = wordIndex+1; i < words.length; i++) {
+                if(words[wordIndex].equalsIgnoreCase(words[i]))
+                    frequencyCounter++;
+            }
+            if(frequencyCounter > mostFrequentCounter) {
+                mostFrequentCounter = frequencyCounter;
+                mostFrequentWords = new StringBuilder();
+                mostFrequentWords.append(words[wordIndex]).append(" ");
+            } else if(frequencyCounter == mostFrequentCounter) {
+                mostFrequentWords.append(words[wordIndex]).append(" ");
+            }
+        }
+        System.out.println(mostFrequentWords.toString().trim());
+
 
     }
 }
