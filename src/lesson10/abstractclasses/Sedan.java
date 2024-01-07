@@ -1,4 +1,4 @@
-package lesson10;
+package lesson10.abstractclasses;
 
 public class Sedan extends Car {
 
