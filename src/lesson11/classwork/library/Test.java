@@ -2,7 +2,7 @@ package lesson11.classwork.library;
 
 public class Test {
     public static void main(String[] args) {
-        Library library = new Library(10);
+        Library library = new Library(3);
 
         Book book = new Book("Book1","Author1",1,1900);
         Book book1 = new Book("Book1","Author1",1,1900);
@@ -11,6 +11,8 @@ public class Test {
 
         library.addBook(book);
         library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
 
         library.getBooks();
         System.out.println(library.findBookByIsbn(2));

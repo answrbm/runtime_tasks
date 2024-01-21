@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Library {
 
-    private Book[] books;
-    private int counter;
+    private final Book[] books;
+    private int size;
 
     public Library(int capacity) {
         this.books = new Book[capacity];
