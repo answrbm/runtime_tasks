@@ -103,8 +103,6 @@ public class Test {
         studentsGrades.put("Johnson",geographyGrades);
         studentsGrades.put("Dirk",physicsGrades);
 
-
-        int groupAverageGrade;
         int groupSum = 0;
         int gradesSize = 0;
         for(String student : studentsGrades.keySet()) {
