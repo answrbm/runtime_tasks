@@ -23,6 +23,6 @@ public class Test {
 
         phoneBook.addContact("Family",c4);
 
-        phoneBook.getContactsByGroup("Family");
+        phoneBook.getContactsByGroup("Friends");
     }
 }

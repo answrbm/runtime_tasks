@@ -20,8 +20,8 @@ public class Contact {
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result += phoneNumber.hashCode() * 31;
+        int result = name != null ? name.hashCode() : 0;
+        result += (phoneNumber != null ? phoneNumber.hashCode() : 0) * 31;
         return result;
     }
 
