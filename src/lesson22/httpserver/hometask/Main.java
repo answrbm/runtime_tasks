@@ -25,13 +25,28 @@ class ProductHandler implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        exchange.sendResponseHeaders(200,0);
-        try(OutputStream os = exchange.getResponseBody()) {
+        String uri = exchange.getRequestURI().toString();
+        exchange.sendResponseHeaders(200, 0);
+
+        try (OutputStream os = exchange.getResponseBody()) {
             Gson gson = new Gson();
             List<Product> products = new ArrayList<>();
-            for(int i = 0; i < 5; i++) {
-                Product p = new Product("Product"+(i+1),(i+1)*100);
-                products.add(p);
+            if (uri.contains("?")) {
+                String[] params = uri.split("\\?")[1].split("&");
+                double from = Double.parseDouble(params[0].substring(params[0].indexOf("=")+1));
+                double to = Double.parseDouble(params[1].substring(params[1].indexOf("=")+1));
+
+                for (int i = 0; i < 5; i++) {
+                    Product p = new Product("Product" + (i + 1), (i + 1) * 100);
+                    if(p.getPrice() >= from && p.getPrice() <= to) {
+                        products.add(p);
+                    }
+                }
+            } else {
+                for (int i = 0; i < 5; i++) {
+                    Product p = new Product("Product" + (i + 1), (i + 1) * 100);
+                    products.add(p);
+                }
             }
             os.write(gson.toJson(products).getBytes());
         }
