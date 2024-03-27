@@ -1,5 +1,7 @@
 package classwork.projects.tasktracker.models;
 
+import classwork.projects.tasktracker.util.TaskType;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -8,8 +10,8 @@ public class Epic extends Task {
 
     private List<Subtask> subtasks;
 
-    public Epic(int id, String title, String description) {
-        super(id, title, description);
+    public Epic(int id, String summary, String description, int duration) {
+        super(id, summary, description, TaskType.EPIC,duration);
         this.subtasks = new ArrayList<>();
     }
 
@@ -21,32 +23,4 @@ public class Epic extends Task {
         subtasks.add(subtask);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Epic epic = (Epic) o;
-
-        return Objects.equals(subtasks, epic.subtasks);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (subtasks != null ? subtasks.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Epic{" +
-                "taskId=" + getTaskId() +
-                ", summary='" + getSummary() +
-                ", description='" + getDescription() +
-                ", status=" + getStatus() +
-                ", subtasks=" + subtasks +
-                '}';
-    }
 }

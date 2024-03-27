@@ -1,5 +1,10 @@
 package classwork.projects.tasktracker.models;
 
+import classwork.projects.tasktracker.util.Status;
+import classwork.projects.tasktracker.util.TaskType;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Task {
@@ -8,12 +13,21 @@ public class Task {
     private String summary;
     private String description;
     private Status status;
+    private LocalDateTime createdAt;
+    private LocalDateTime finishedAt;
+    private TaskType taskType;
 
-    public Task(int taskId, String summary, String description) {
+    private int duration = 9;
+
+    public Task(int taskId, String summary, String description, TaskType taskType, int duration) {
         this.taskId = taskId;
         this.summary = summary;
         this.description = description;
         this.status = Status.NEW;
+        this.createdAt = LocalDateTime.now();
+        this.duration = duration;
+        this.finishedAt = this.createdAt.plusDays(duration);
+        this.taskType = taskType;
     }
 
     public int getTaskId() {
@@ -44,35 +58,39 @@ public class Task {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Task task = (Task) o;
-
-        if (taskId != task.taskId) return false;
-        if (!Objects.equals(summary, task.summary)) return false;
-        if (!Objects.equals(description, task.description)) return false;
-        return status == task.status;
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
-    @Override
-    public int hashCode() {
-        int result = taskId;
-        result = 31 * result + (summary != null ? summary.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        return result;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    @Override
-    public String toString() {
-        return "Task{" +
-                "taskId=" + taskId +
-                ", summary='" + summary + '\'' +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                '}';
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getFinishedAt() {
+        return finishedAt;
+    }
+
+    public void setFinishedAt(LocalDateTime finishedAt) {
+        this.finishedAt = finishedAt;
+    }
+
+    public TaskType getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(TaskType taskType) {
+        this.taskType = taskType;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }
